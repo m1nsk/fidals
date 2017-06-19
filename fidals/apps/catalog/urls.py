@@ -12,10 +12,10 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register(r'product', ProductViewSet)
 router.register(r'category', CategoryViewSet)
-router.register(r'catalog', CatalogViewSet)
+router.register(r'catalog_view_set', CatalogViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^catalog_list/', CatalogList.as_view()),
-    url(r'^catalog_filtered_list/', CatalogFilteredList.as_view()),
+    url(r'^catalog/', CatalogFilteredList.as_view()),
 ]

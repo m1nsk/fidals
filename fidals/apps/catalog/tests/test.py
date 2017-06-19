@@ -11,7 +11,7 @@ class AccordanceTestCase(TestCase):
 
     def test_catalog_fine(self):
         c = Client()
-        response = c.get('/api/catalog_filtered_list/', {'categories': '1'})
+        response = c.get('/api/catalog/', {'categories': '1'})
         old_rusty_sword_of_weak_flag = False
         balalaika_flag = False
         for item in response.context['object_list']:
@@ -24,7 +24,7 @@ class AccordanceTestCase(TestCase):
 
     def test_catalog_fail(self):
         c = Client()
-        response = c.get('/api/catalog_filtered_list/', {'categories': '1'})
+        response = c.get('/api/catalog/', {'categories': '1'})
         old_rusty_sword_of_weak_flag = False
         balalaika_flag = False
         for item in response.context['object_list']:
@@ -37,16 +37,16 @@ class AccordanceTestCase(TestCase):
 
     def test_catalog_filter_limit(self):
         c = Client()
-        response = c.get('/api/catalog_filtered_list/', {'limit': '3'})
+        response = c.get('/api/catalog/', {'limit': '3'})
         self.assertTrue(len(response.context['object_list']) == 3)
 
     def test_catalog_filter_offset(self):
         c = Client()
-        response = c.get('/api/catalog_filtered_list/', {'offset': '3'})
+        response = c.get('/api/catalog/', {'offset': '3'})
         self.assertTrue(len(response.context['object_list']) == 3)
 
     def test_catalog_none_parameters(self):
         c = Client()
-        response = c.get('/api/catalog_filtered_list/')
+        response = c.get('/api/catalog/')
         self.assertTrue(len(response.context['object_list']) == 6)
 
