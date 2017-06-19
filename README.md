@@ -30,3 +30,9 @@ pip install -r requirements.txt
 ```
 ./manage.py runserver
 ```
+
+#Тестирование
+
+```
+./manage.py test apps.catalog.tests
+```
