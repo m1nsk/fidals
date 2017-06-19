@@ -1,0 +1,16 @@
+{% block content %}
+    <h2>Catalog Table</h2>
+    <table border="1" style="border-collapse: collapse">
+        <caption>Catalog Table</caption>
+        <tr>
+            <th>Name</th>
+            <th>Categories</th>
+        </tr>
+        {% for item in object_list %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td><br>{% for category in item.categories.all %}{{ category }}<br/>{% endfor %}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
